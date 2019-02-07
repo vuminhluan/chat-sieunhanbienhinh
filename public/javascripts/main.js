@@ -16,7 +16,6 @@ $(document).ready(function () {
     msg = addLineBreak(msg);
     renderMessageWhenSend('rtl', msg);
     emitMessageToEveryone(msg);
-    clearMessageBox();
   });
 });
 
@@ -30,8 +29,9 @@ function renderMessageWhenSend(dir, msg) {
     url: "/show-sender-message",
     data: {dir: dir, msg: msg},
     success: function (response) {
-      console.log(response);
+      // console.log(response);
       $('.conversation').append(response);
+      clearMessageBox();
     }
   });
 }
