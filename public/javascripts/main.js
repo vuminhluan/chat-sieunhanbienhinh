@@ -16,6 +16,7 @@ $(document).ready(function () {
     msg = addLineBreak(msg);
     renderMessageWhenSend('rtl', msg);
     emitMessageToEveryone(msg);
+    clearMessageBox();
   });
 });
 
@@ -37,4 +38,8 @@ function renderMessageWhenSend(dir, msg) {
 
 function emitMessageToEveryone(msg) {
   socket.emit('chat', msg);
+}
+
+function clearMessageBox() {
+  $('textarea#chatbox').val('');
 }
