@@ -1,0 +1,92 @@
+.paddingY-8 {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important; }
+
+.gray-bg {
+  background-color: #ebebee; }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+a {
+  text-decoration: none !important; }
+
+header {
+  background-color: #fff; }
+  header nav.nav {
+    height: 55px;
+    line-height: 55px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    text-align: center; }
+    header nav.nav .navheader {
+      display: inline-block; }
+    header nav.nav .navheader-left {
+      float: left; }
+    header nav.nav .navheader-right {
+      float: right; }
+    header nav.nav .logotext {
+      font-size: 24px; }
+      header nav.nav .logotext span:first-child {
+        color: #fff;
+        background-color: #296789;
+        padding: 1px 6px;
+        border-radius: 3px; }
+      header nav.nav .logotext span:last-child {
+        color: #296789; }
+
+.conversation {
+  border: 1px solid #dddfe2;
+  padding: 8px;
+  width: 100%;
+  max-height: 350px;
+  min-height: 350px;
+  overflow: auto;
+  border-radius: 3px;
+  background-color: #fff; }
+  .conversation .chat {
+    overflow: hidden;
+    margin-bottom: 4px; }
+    .conversation .chat .content {
+      background-color: #f1f0f0;
+      padding: 4px;
+      max-width: 70%;
+      border-radius: 5px; }
+      .conversation .chat .content.ltr {
+        float: left; }
+      .conversation .chat .content.rtl {
+        float: right; }
+        .conversation .chat .content.rtl .name {
+          text-align: right; }
+      .conversation .chat .content .name {
+        font-weight: bold;
+        font-size: 13px;
+        display: block;
+        width: 100%; }
+      .conversation .chat .content .message {
+        font-size: 15px; }
+
+.chatbox {
+  margin: 8px 0;
+  resize: none;
+  width: 100%;
+  height: 70px;
+  border: 1px solid #dddfe2;
+  border-radius: 3px;
+  padding: 8px; }
+
+.send-button {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #5d95b9;
+  background-color: #296789;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.8;
+  font-weight: bold; }
+  .send-button:hover {
+    opacity: 1; }
+
+/*# sourceMappingURL=style.css.map */

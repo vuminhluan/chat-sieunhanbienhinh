@@ -1,0 +1,18 @@
+extends layout
+
+block main
+  .conversation
+    //- .chat(data-dir="ltr")
+    //-   .content.ltr
+    //-     span.name Vu Minh Luan:
+    //-     .message
+    //-       | culpa ipsam laboriosam.
+    //- .chat(data-dir="rtl")
+    //-   .content.rtl
+    //-     span.name Vu Minh Luan:
+    //-     .message
+    //-       | Lorem ipsum dolor sit amet.
+  .chat-composer
+    textarea(name="chatbox", id="chatbox").chatbox
+    button.send-button
+      | Gửi

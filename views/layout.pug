@@ -1,0 +1,27 @@
+//- doctype html
+//- html
+//-   head
+//-     title= title
+//-     link(rel='stylesheet', href='/stylesheets/style.css')
+//-   body
+//-     block content
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    include includes/head.pug
+    
+  body.gray-bg
+    include includes/header.pug
+    .container
+      .row
+        .col-12.col-md-3
+          .sidebar.left-sidebar
+            block left-sidebar
+        .col-12.col-md-6
+          .main.paddingY-8
+            block main
+        .col-12.col-md-3
+          .sidebar.right-sidebar
+            block right-sidebar
+    include includes/javascript.pug

@@ -1,0 +1,30 @@
+header {
+  background-color: #fff;
+  nav.nav {
+    height: 55px;
+    line-height: 55px;
+    box-shadow: 0px 3px 6px rgba(#000, 0.2);
+    text-align: center;
+    .navheader {
+      display: inline-block;
+    }
+    .navheader-left {
+      float: left;
+    }
+    .navheader-right {
+      float: right;
+    }
+    .logotext {
+      font-size: 24px;
+      span:first-child {
+        color: #fff;
+        background-color: #296789;
+        padding: 1px 6px;
+        border-radius: 3px;
+      }
+      span:last-child {
+        color: #296789;
+      }
+    }
+  }
+}
