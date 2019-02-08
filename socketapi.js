@@ -1,7 +1,9 @@
-var io = require('socket.io')();
+var io        = require('socket.io')();
 var socketAPI = {};
 
-socketAPI.io = io;
+socketAPI.io  = io;
+
+var users     = {};
 
 io.on('connection', function(socket) {
   // console.log('Hello you, '+socket.id);
@@ -12,9 +14,9 @@ io.on('connection', function(socket) {
     socket.broadcast.emit('chat', msg);
   });
 
-  socket.on('typing', function(enabled) {
+  socket.on('typing', function(show) {
     // console.log(msg);
-    socket.broadcast.emit('typing', enabled);
+    socket.broadcast.emit('typing', show, socket.id);
   });
 });
 

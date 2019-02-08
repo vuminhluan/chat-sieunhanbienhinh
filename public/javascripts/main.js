@@ -8,16 +8,23 @@ socket.on('chat', function(msg) {
 });
 
 // except sender
-socket.on('typing', function(enabled) {
-  if (enabled) {
-    var p = "<p class='typing-noty'>Someone is typing...</p>";
-    $('.conversation').append(p);
+socket.on('typing', function(show, socketID) {
+
+  if (show) {
+    if (!$('.typing-noty[data-id='+socketID+']')[0]) {
+      var typingNoty = "<span data-id='"+socketID+"' data-remove-when-disconnect='"+socketID+"' class='typing-noty'>Ai đó đang trả lời...</span>";
+      $('.someone-typing-noty').append(typingNoty);
+    }
   } else {
-    $('.typing-noty').remove();
+    if ($('.typing-noty[data-id='+socketID+']')[0]) {
+      $('.typing-noty[data-id='+socketID+']').remove();
+    }
   }
 });
 
 $(document).ready(function () {
+  $('textarea#chatbox').val('');
+
   socket.on('welcome', function(msg) {
     console.log(msg);
   });
@@ -31,13 +38,14 @@ $(document).ready(function () {
     }
   });
 
-  $('body').on('keyup', '.send-button:not(.disabled)', function() {
+  $('body').on('keyup', 'textarea#chatbox', function() {
     var msg = $('textarea#chatbox').val();
-    var enabled = false;
+    // console.log(msg);
+    var show = false;
     if (msg != "") {
-      enabled = true;
+      show = true;
     }
-    emitTypingStatus(enabled);
+    emitTypingStatus(show);
   });
 });
 

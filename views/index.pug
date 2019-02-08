@@ -12,8 +12,12 @@ block main
     //-     span.name Vu Minh Luan:
     //-     .message
     //-       | Lorem ipsum dolor sit amet.
+    p.chat-noty.someone-typing-noty
   .chat-composer
     textarea(name="chatbox", id="chatbox", placeholder="Hãy gửi lời yêu thương tới mọi người...").chatbox
     button(type="button").send-button
       //- disabled
       | Gửi
+
+block modal
+  include components/nickname-modal.pug

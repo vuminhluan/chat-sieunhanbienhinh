@@ -7,6 +7,17 @@
   overflow: auto;
   border-radius: 3px;
   background-color: #fff;
+  position: relative;
+
+  .chat-noty {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    padding: 0 10px;
+  }
 
   .chat {
     overflow: hidden;
