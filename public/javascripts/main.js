@@ -2,8 +2,19 @@ var socket = io();
 
 // SOCKET
 
+// except sender
 socket.on('chat', function(msg) {
   renderMessageWhenSend('ltr', msg);
+});
+
+// except sender
+socket.on('typing', function(enabled) {
+  if (enabled) {
+    var p = "<p class='typing-noty'>Someone is typing...</p>";
+    $('.conversation').append(p);
+  } else {
+    $('.typing-noty').remove();
+  }
 });
 
 $(document).ready(function () {
@@ -13,9 +24,20 @@ $(document).ready(function () {
 
   $('body').on('click', '.send-button:not(.disabled)', function() {
     var msg = $('textarea#chatbox').val();
-    msg = addLineBreak(msg);
-    renderMessageWhenSend('rtl', msg);
-    emitMessageToEveryone(msg);
+    if (msg != "") {
+      msg = addLineBreak(msg);
+      renderMessageWhenSend('rtl', msg);
+      emitMessageToEveryone(msg);
+    }
+  });
+
+  $('body').on('keyup', '.send-button:not(.disabled)', function() {
+    var msg = $('textarea#chatbox').val();
+    var enabled = false;
+    if (msg != "") {
+      enabled = true;
+    }
+    emitTypingStatus(enabled);
   });
 });
 
@@ -48,4 +70,8 @@ function clearMessageBox() {
 
 function changeSendingButtonStatus() {
   $('.send-button').toggleClass('disabled');
+}
+
+function emitTypingStatus(enabled) {
+  socket.emit('typing', enabled);
 }

@@ -8,8 +8,13 @@ io.on('connection', function(socket) {
   io.to(socket.id).emit('welcome', 'Chào mừng bạn tới chatroom chúng tôi');
 
   socket.on('chat', function(msg) {
-    console.log(msg);
+    // console.log(msg);
     socket.broadcast.emit('chat', msg);
+  });
+
+  socket.on('typing', function(enabled) {
+    // console.log(msg);
+    socket.broadcast.emit('typing', enabled);
   });
 });
 
