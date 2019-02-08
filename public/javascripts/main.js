@@ -11,7 +11,7 @@ $(document).ready(function () {
     console.log(msg);
   });
 
-  $('body').on('click', '.send-button', function() {
+  $('body').on('click', '.send-button:not(.disabled)', function() {
     var msg = $('textarea#chatbox').val();
     msg = addLineBreak(msg);
     renderMessageWhenSend('rtl', msg);
@@ -24,6 +24,7 @@ function addLineBreak(msg) {
 }
 
 function renderMessageWhenSend(dir, msg) {
+  changeSendingButtonStatus();
   $.ajax({
     type: "GET",
     url: "/show-sender-message",
@@ -42,4 +43,8 @@ function emitMessageToEveryone(msg) {
 
 function clearMessageBox() {
   $('textarea#chatbox').val('');
+}
+
+function changeSendingButtonStatus() {
+  $('.send-button').toggleClass('disabled');
 }
