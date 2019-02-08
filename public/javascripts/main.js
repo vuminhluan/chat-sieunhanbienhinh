@@ -33,6 +33,7 @@ function renderMessageWhenSend(dir, msg) {
       // console.log(response);
       $('.conversation').append(response);
       clearMessageBox();
+      changeSendingButtonStatus();
     }
   });
 }
