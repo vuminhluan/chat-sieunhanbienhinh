@@ -42,18 +42,34 @@ header {
   width: 100%;
   max-height: 350px;
   min-height: 350px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   border-radius: 3px;
   background-color: #fff;
-  position: relative; }
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #296789 #ebebee; }
+  .conversation::-webkit-scrollbar {
+    width: 6px; }
+  .conversation::-webkit-scrollbar-track {
+    background: #ebebee; }
+  .conversation::-webkit-scrollbar-thumb {
+    background: #296789; }
   .conversation .chat-noty {
-    position: absolute;
-    bottom: 0%;
+    position: sticky;
+    top: 95%;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     text-align: center;
-    padding: 0 10px; }
+    padding: 0 10px;
+    margin: 0; }
+    .conversation .chat-noty .typing-noty {
+      font-size: 12px;
+      color: #bbb;
+      font-style: italic;
+      display: block;
+      width: 100%; }
   .conversation .chat {
     overflow: hidden;
     margin-bottom: 4px; }
@@ -76,8 +92,13 @@ header {
       .conversation .chat .content .message {
         font-size: 15px; }
 
+.chat-nickname {
+  margin-top: 8px;
+  margin-left: 8px;
+  display: block; }
+
 .chatbox {
-  margin: 8px 0;
+  margin: 0 0 8px 0;
   resize: none;
   width: 100%;
   height: 70px;
@@ -90,6 +111,7 @@ header {
   width: 100%;
   height: 40px;
   border: 1px solid #5d95b9;
+  border-radius: 3px;
   background-color: #296789;
   color: #fff;
   cursor: pointer;
@@ -97,6 +119,24 @@ header {
   font-weight: bold; }
   .send-button:hover {
     opacity: 1; }
+
+.widget-notification .web-noty {
+  padding: 8px 15px 8px 8px;
+  background-color: #296789;
+  color: #fff;
+  border-radius: 5px;
+  word-wrap: break-word;
+  position: relative;
+  margin-bottom: 4px; }
+  .widget-notification .web-noty:hover {
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3); }
+  .widget-notification .web-noty .remove-noty-button {
+    position: absolute;
+    top: 0px;
+    right: 4px;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer; }
 
 .modal {
   position: fixed;
@@ -140,7 +180,8 @@ header {
     border: 1px solid #5d95b9;
     color: #fff;
     cursor: pointer;
-    opacity: 0.8; }
+    opacity: 0.8;
+    border-radius: 5px; }
     .modal#nickname-modal .modal-footer button.accept-btn:hover {
       opacity: 1; }
 

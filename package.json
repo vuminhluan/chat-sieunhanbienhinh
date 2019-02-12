@@ -13,6 +13,7 @@
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "node-sass-middleware": "0.11.0",
+    "noty": "^3.2.0-beta",
     "postcss-middleware": "^1.1.4",
     "pug": "~2.0.3",
     "socket.io": "^2.2.0"

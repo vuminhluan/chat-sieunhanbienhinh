@@ -10,8 +10,9 @@ router.get('/', function(req, res, next) {
 router.get('/show-sender-message', function(req, res, next) {
   var dir = req.query.dir;
   var msg = req.query.msg;
-  var name = 'Unknown';
+  var name = req.query.name;
   res.render('components/chat', { dir: dir, msg: msg, name: name });
 });
+
 
 module.exports = router;

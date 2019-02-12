@@ -1,5 +1,10 @@
 extends layout
 
+block left-sidebar
+  ul.user-list
+    //- li VuMinhLuan
+    //- li Lorem, ipsum dolor.
+    //- li LinhTran
 block main
   .conversation
     //- .chat(data-dir="ltr")
@@ -14,10 +19,24 @@ block main
     //-       | Lorem ipsum dolor sit amet.
     p.chat-noty.someone-typing-noty
   .chat-composer
+    span.chat-nickname
+    input(type="hidden" name="chat_nickname")
     textarea(name="chatbox", id="chatbox", placeholder="Hãy gửi lời yêu thương tới mọi người...").chatbox
     button(type="button").send-button
       //- disabled
       | Gửi
+
+//- block right-sidebar
+//-   div.widget.widget-notification.paddingY-8
+//-     ul
+//-       li.welcome.web-noty Chào mừng 
+//-         b.nickname bạn
+//-         |  tới chatroom !
+//-         span.remove-noty-button &times;
+//-       li.welcome.web-noty Chào mừng 
+//-         b.nickname bạn
+//-         |  tới chatroom !
+//-         span.remove-noty-button &times;
 
 block modal
   include components/nickname-modal.pug

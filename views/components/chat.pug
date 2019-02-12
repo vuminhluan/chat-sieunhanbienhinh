@@ -1,4 +1,4 @@
-.chat(data-dir=dir)
+div(data-dir=dir class=dir=="rtl" ? "slideInRight chat animated" : "slideInLeft chat animated")
   div(class="content "+dir)
     span.name= name
     .message!= msg

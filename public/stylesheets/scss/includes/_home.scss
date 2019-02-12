@@ -4,19 +4,42 @@
   width: 100%;
   max-height: 350px;
   min-height: 350px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   border-radius: 3px;
   background-color: #fff;
   position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: $primary-color $gray;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+   
+  &::-webkit-scrollbar-track {
+    background: $gray;
+  }
+   
+  &::-webkit-scrollbar-thumb {
+    background: $primary-color;
+  }
 
   .chat-noty {
-    position: absolute;
-    bottom: 0%;
+    position: sticky;
+    top: 95%;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     text-align: center;
     padding: 0 10px;
+    margin: 0;
+
+    .typing-noty {
+      font-size: 12px;
+      color: #bbb;
+      font-style: italic;
+      display: block;
+      width: 100%;
+    }
   }
 
   .chat {
@@ -49,8 +72,14 @@
     }
   }
 }
+
+.chat-nickname {
+  margin-top: 8px;
+  margin-left: 8px;
+  display: block;
+}
 .chatbox {
-  margin: 8px 0;
+  margin: 0 0 8px 0;
   resize: none;
   width: 100%;
   height: 70px;
@@ -62,6 +91,7 @@
   display: block;
   width: 100%; height: 40px;
   border: 1px solid $primary-light;
+  border-radius: 3px;
   background-color: $primary-color;
   color: #fff;
   cursor: pointer;
@@ -69,5 +99,28 @@
   font-weight: bold;
   &:hover {
     opacity: 1;
+  }
+}
+
+.widget-notification {
+  .web-noty {
+    padding: 8px 15px 8px 8px;
+    background-color: $primary-color;
+    color: #fff;
+    border-radius: 5px;
+    word-wrap: break-word;
+    position: relative;
+    margin-bottom: 4px;
+    &:hover {
+      box-shadow: 1px 2px 3px rgba(#000, 0.3);
+    }
+    .remove-noty-button {
+      position: absolute;
+      top: 0px;
+      right: 4px;
+      display: inline-block;
+      font-weight: bold;
+      cursor: pointer;
+    }
   }
 }
